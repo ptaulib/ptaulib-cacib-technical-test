@@ -1,0 +1,16 @@
+{
+  "menu_profile": "Profil",
+  "menu_settings": "Paramètres",
+  "menu_settings_scopes": "Portées",
+  "menu_settings_partners": "Partenaires",
+  "select_language": "Selectionner une langue",
+  "create_button_label": "Créer",
+  "creation_date": "Date de création",
+  "last_updated_date": "Date de dernière modification",
+  "last_updated_user_id": "Modifié par",
+  "new_profile_label": "Nouveau profil",
+  "cancel": "Annuler",
+  "save": "Enregistrer",
+  "saved_successfully": "Enregistré",
+  "close": "Fermer"
+}

@@ -1,0 +1,65 @@
+<h2 mat-dialog-title>New partner</h2>
+<form #form="ngForm">
+  <mat-dialog-content>
+
+    <p>
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <input name="status" #status="ngModel" required matInput [(ngModel)]="element().status"/>
+      </mat-form-field>
+    </p>
+    <p>
+
+      <mat-form-field>
+        <mat-label>Hosting Type</mat-label>
+        <select name="hostingType" #hostingType="ngModel" required matNativeControl [(ngModel)]="element().hostingType">
+          <option value="MQ">MQ</option>
+          <option value="DIRECTORY">DIRECTORY</option>
+          <option value="PRINTER">PRINTER</option>
+          <option value="S3">S3</option>
+        </select>
+      </mat-form-field>
+    </p>
+    <p>
+
+      <mat-form-field>
+        <mat-label>Alias</mat-label>
+        <input name="alias" #alias="ngModel" required matInput [(ngModel)]="element().alias"/>
+      </mat-form-field>
+    </p>
+    <p>
+
+      <mat-form-field>
+        <mat-label>Queue Name</mat-label>
+        <select name="queueName" #queueName="ngModel" required matNativeControl [(ngModel)]="element().queueName">
+          <option value="MQ_FROM_PAP_MSG">MQ_FROM_PAP_MSG</option>
+          <option value="DIR_FLXTW094">DIR_FLXTW094</option>
+          <option value="MQ_FROM_KEMM_WWIL_MSG">MQ_FROM_KEMM_WWIL_MSG</option>
+        </select>
+      </mat-form-field>
+    </p>
+    <p>
+
+      <mat-form-field>
+        <mat-label>Application</mat-label>
+        <input name="application" #application="ngModel" required matInput [(ngModel)]="element().application"/>
+      </mat-form-field>
+    </p>
+    <p>
+
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea name="description" #description="ngModel" required matInput
+                  [(ngModel)]="element().description"></textarea>
+      </mat-form-field>
+    </p>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button matButton (click)="onNoClick()">{{ 'cancel' | translate }}</button>
+    <button [disabled]="form.invalid" matButton cdkFocusInitial (click)="save()">{{ 'save' |
+      translate }}
+    </button>
+    <mat-spinner *ngIf="loading" diameter="18"></mat-spinner>
+  </mat-dialog-actions>
+</form>

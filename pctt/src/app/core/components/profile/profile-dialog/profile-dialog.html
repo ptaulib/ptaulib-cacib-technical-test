@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>{{ 'new_profile_label' | translate }}</h2>
+<form #form="ngForm">
+  <mat-dialog-content>
+    <p>
+      <mat-form-field>
+        <mat-label>Code</mat-label>
+        <input name="code" #code="ngModel" required minlength="5" maxlength="10" pattern='^(?!\d+$)(?!.*[&!#_"]).*$' matInput [(ngModel)]="element().code"/>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea name="description" #description="ngModel" required minlength="10" maxlength="30" matInput [(ngModel)]="element().description"></textarea>
+      </mat-form-field>
+    </p>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button matButton (click)="onNoClick()">{{ 'cancel' | translate }}</button>
+    <button [disabled]="form.invalid" matButton cdkFocusInitial (click)="save()">{{ 'save' |
+      translate }}
+    </button>
+    <mat-spinner *ngIf="loading" diameter="18"></mat-spinner>
+  </mat-dialog-actions>
+
+</form>

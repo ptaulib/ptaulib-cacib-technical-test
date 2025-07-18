@@ -1,0 +1,38 @@
+.title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.title span {
+  font-weight: 600;
+  margin-right: 12px;
+  user-select: none;
+}
+
+.title button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 8px 14px 8px 36px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.title button:hover {
+  background-color: #dcdcdc;
+}
+
+.title button::before {
+  content: attr(data-flag);
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  pointer-events: none;
+}

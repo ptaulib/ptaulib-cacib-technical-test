@@ -1,0 +1,16 @@
+{
+  "menu_profile": "Profile",
+  "menu_settings": "Settings",
+  "menu_settings_scopes": "Scopes",
+  "menu_settings_partners": "Partners",
+  "select_language": "Select language",
+  "create_button_label": "Create",
+  "creation_date": "Creation date",
+  "last_updated_date": "Updated on",
+  "last_updated_user_id": "Updated by",
+  "new_profile_label": "New profile",
+  "cancel": "Cancel",
+  "save": "Save",
+  "saved_successfully": "Saved successfully",
+  "close": "Close"
+}

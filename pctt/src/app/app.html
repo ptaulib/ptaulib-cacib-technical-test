@@ -1,0 +1,19 @@
+
+
+<main class="main">
+  <div class="header-container">
+    <div>
+      <button matButton routerLink="/profile" routerLinkActive="active" ariaCurrentWhenActive="page">{{ 'menu_profile' | translate }}</button>
+      <button matButton [matMenuTriggerFor]="settings">{{ 'menu_settings' | translate }}</button>
+      <mat-menu #settings="matMenu">
+        <button mat-menu-item routerLink="/scopes" routerLinkActive="active" ariaCurrentWhenActive="page">{{ 'menu_settings_scopes' | translate }}</button>
+        <button mat-menu-item routerLink="/partners" routerLinkActive="active" ariaCurrentWhenActive="page">{{ 'menu_settings_partners' | translate }}</button>
+      </mat-menu>
+    </div>
+    <app-language-switcher></app-language-switcher>
+  </div>
+
+</main>
+
+
+<router-outlet />

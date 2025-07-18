@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>New scope</h2>
+<form #form="ngForm">
+  <mat-dialog-content>
+    <p>
+
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input name="nom" #nom="ngModel" required matInput [(ngModel)]="element().nom"/>
+      </mat-form-field>
+    </p>
+    <p>
+
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea name="description" #description="ngModel" required matInput [(ngModel)]="element().description"></textarea>
+      </mat-form-field>
+    </p>
+    <p>
+
+      <mat-form-field>
+        <mat-label>Comment</mat-label>
+        <textarea name="commentaire" #commentaire="ngModel" required matInput [(ngModel)]="element().commentaire"></textarea>
+      </mat-form-field>
+    </p>
+    <p>
+
+      <mat-form-field>
+        <mat-label>Condition</mat-label>
+        <input name="condition" #condition="ngModel" required matInput [(ngModel)]="element().condition"/>
+      </mat-form-field>
+    </p>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button matButton (click)="onNoClick()">{{ 'cancel' | translate }}</button>
+    <button [disabled]="form.invalid" matButton cdkFocusInitial (click)="save()">{{ 'save' |
+      translate }}
+    </button>
+    <mat-spinner *ngIf="loading" diameter="18"></mat-spinner>
+  </mat-dialog-actions>
+</form>
