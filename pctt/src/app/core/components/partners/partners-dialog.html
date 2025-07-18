@@ -8,18 +8,7 @@
         <input name="status" #status="ngModel" required matInput [(ngModel)]="element().status"/>
       </mat-form-field>
     </p>
-    <p>
 
-      <mat-form-field>
-        <mat-label>Hosting Type</mat-label>
-        <select name="hostingType" #hostingType="ngModel" required matNativeControl [(ngModel)]="element().hostingType">
-          <option value="MQ">MQ</option>
-          <option value="DIRECTORY">DIRECTORY</option>
-          <option value="PRINTER">PRINTER</option>
-          <option value="S3">S3</option>
-        </select>
-      </mat-form-field>
-    </p>
     <p>
 
       <mat-form-field>
@@ -31,13 +20,23 @@
 
       <mat-form-field>
         <mat-label>Queue Name</mat-label>
-        <select name="queueName" #queueName="ngModel" required matNativeControl [(ngModel)]="element().queueName">
+        <select name="queueName" #queueName="ngModel" required matNativeControl [(ngModel)]="element().queueName" (ngModelChange)="onChangeQueue($event)">
           <option value="MQ_FROM_PAP_MSG">MQ_FROM_PAP_MSG</option>
           <option value="DIR_FLXTW094">DIR_FLXTW094</option>
           <option value="MQ_FROM_KEMM_WWIL_MSG">MQ_FROM_KEMM_WWIL_MSG</option>
         </select>
       </mat-form-field>
     </p>
+    <p>
+
+      <mat-form-field>
+        <mat-label>Hosting Type</mat-label>
+        <select name="hostingType" #hostingType="ngModel" required matNativeControl [(ngModel)]="element().hostingType">
+          <option *ngFor="let it of hostingTypes" value="{{it}}">{{it}}</option>
+        </select>
+      </mat-form-field>
+    </p>
+
     <p>
 
       <mat-form-field>

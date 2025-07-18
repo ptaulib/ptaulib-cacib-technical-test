@@ -132,6 +132,7 @@ export class PartnerFormDialog {
     readonly element = model(this.data.element);
 
   loading: boolean = false;
+  hostingTypes: string[] = ["MQ", "DIRECTORY", "PRINTER", "S3"];
 
     onNoClick(): void {
       this.loading = false;
@@ -143,5 +144,17 @@ export class PartnerFormDialog {
       setTimeout(() => {
         this.dialogRef.close(this.element());
       }, 2000);
+    }
+
+    onChangeQueue(value: string) : void {
+      this.buildHostingTypes(value);
+    }
+
+    buildHostingTypes(queueName ?: string) {
+      this.hostingTypes = ["MQ", "DIRECTORY", "PRINTER", "S3"];
+      if(queueName === "MQ_FROM_PAP_MSG" || queueName === 'DIR_FLXTW094')
+        this.hostingTypes = ["DIRECTORY", "MQ"];
+      else if (queueName === "MQ_FROM_KEMM_WWIL_MSG")
+        this.hostingTypes = ["S3"];
     }
 }
