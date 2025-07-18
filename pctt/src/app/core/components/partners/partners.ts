@@ -66,7 +66,9 @@ this.dbData = [ {id: 1, status: "ACTIVE", hostingType: "MQ", alias: "al1", queue
 
     openFormDialog(id?: number): void {
 
-          this.element = signal({});
+          this.element = signal({
+            status: "ACTIVE"
+          });
           if(id) {
             let item = this.dbData.find(i => i.id === id);
             if(item) {
@@ -125,7 +127,7 @@ this.dbData = [ {id: 1, status: "ACTIVE", hostingType: "MQ", alias: "al1", queue
   standalone: false,
   templateUrl: 'partners-dialog.html'
 })
-export class PartnerFormDialog {
+export class PartnerFormDialog implements OnInit {
   readonly dialogRef = inject(MatDialogRef<PartnerFormDialog>);
   readonly data = inject<any>(MAT_DIALOG_DATA);
 
@@ -133,6 +135,12 @@ export class PartnerFormDialog {
 
   loading: boolean = false;
   hostingTypes: string[] = ["MQ", "DIRECTORY", "PRINTER", "S3"];
+
+
+  ngOnInit() {
+    if(this.element && this.element() && this.element().queueName)
+      this.buildHostingTypes(this.element().queueName);
+  }
 
     onNoClick(): void {
       this.loading = false;
